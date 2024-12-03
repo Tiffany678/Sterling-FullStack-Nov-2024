@@ -58,38 +58,63 @@ order by ProductOrderQuantities DESC
 -- 7.      List all Customers who have ordered products, but have the ‘ship city’ on the order different from their own customer cities.
 SELECT DISTINCT C.CustomerID, O.ShipCity AS [Ship City], C.City AS CustomerCity
 FROM Customers C
-JOIN Orders O ON C.CustomerID = O.CustomerID
+    JOIN Orders O ON C.CustomerID = O.CustomerID
 WHERE C.City != O.ShipCity;
 
 -- 8.      List 5 most popular products, their average price, and the customer city that ordered most quantity of it.
--- With ProductCTE AS(
---     SELECT Top 5 p.productName AS [Product Name], count(od.productId) AS [Product Count], p.UnitPrice AS [Product Unit Price], p.ProductID AS ProductID FROM products p JOIN [Order Details] od on od.ProductID = p.ProductID Group By p.ProductName, p.UnitPrice, p.ProductID order by [Product Count]
--- )
--- SELECT p.[Product Name], p.[Product Unit Price], COUNT(o.ShipCity) AS [Customer City] from ProductCTE p LEFT JOIN [Order Details] od on p.ProductID = od.ProductID JOIN Orders o on o.OrderID = od.OrderID Group 
-
+SELECT Top 5
+    SUM(od.quantity) AS TotalQuantity, p.ProductName, Avg(od.UnitPrice) AS AveragePrice, c.City
+FROM [Order Details] od
+    INNER Join Products p ON p.ProductId = od.ProductId
+    INNER Join Orders o on o.OrderID = od.OrderID
+    INNER Join Customers c on c.CustomerID = o.CustomerID
+Group BY ProductName, City
+Order By TotalQuantity DESC
 
 
 -- 9.      List all cities that have never ordered something but we have employees there.
 -- a.      Use sub-query
-SELECT Concat(LastName,' ', FirstName) AS [Employee Never Order], City From Employees where city not in (select ShipCity from orders)
+SELECT Concat(LastName,' ', FirstName) AS [Employee Never Order], City
+From Employees
+where city not in (select ShipCity
+from orders)
 
 -- b.      Do not use sub-query
-SELECT Concat(e.LastName,' ', e.FirstName) AS [Employee Never Order], e.City From Employees e
-LEFT JOIN Orders o ON o.ShipCity = e.city 
+SELECT Concat(e.LastName,' ', e.FirstName) AS [Employee Never Order], e.City
+From Employees e
+    LEFT JOIN Orders o ON o.ShipCity = e.city
 WHERE o.ShipCity is null
 
--- 10.  List one city, if exists, that is the city from where the employee sold most orders (not the product quantity) is, and also the city of most total quantity of products ordered from. (tip: join  sub-query)
-SELECT Top 1 count(o.OrderID) AS OrderCount, e.city
-from employees e 
-JOIN orders o ON o.EmployeeID = e.EmployeeID
-GROUP By e.City
-order by OrderCount DESC
+-- 10.  List one city, if exists, that is the city from where the employee sold most orders (not the product quantity) is, 
+-- and also the city of most total quantity of products ordered from. (tip: join  sub-query)
+-- With
+--     employeeCity
+--     AS
+--     (
+        SELECT Top 1
+            count(o.OrderID) AS OrderCount, e.city AS [City with most order]
+        from employees e
+            JOIN orders o ON o.EmployeeID = e.EmployeeID
+        GROUP By e.City
+        order by OrderCount DESC
+--     )
+-- SELECT Top 1
+--     o.ShipCity, sum(od.Quantity)
+-- FROM [Order Details] od
+-- Join Orders o on o.OrderID = od.OrderID
+-- GROUP BY o.ShipCity
+-- Having o.ShipCity = employeeCity.[City with most order]
+
 
 -- 11. How do you remove the duplicates record of a table?
-With shippersCTE AS (
-    SELECT ShipperId, 
-    CompanyName, 
-    Phone, 
-    ROW_NUMBER() Over (Partition BY ShipperID, CompanyName, phone order BY ShipperId) AS RowNUM
-     from shippers)
+With
+    shippersCTE
+    AS
+    (
+        SELECT ShipperId,
+            CompanyName,
+            Phone,
+            ROW_NUMBER() Over (Partition BY ShipperID, CompanyName, phone order BY ShipperId) AS RowNUM
+        from shippers
+    )
     DElete from shippersCTE where RowNum >1
