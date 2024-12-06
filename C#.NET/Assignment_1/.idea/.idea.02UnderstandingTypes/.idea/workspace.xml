@@ -7,11 +7,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f99cbf4-73d3-41a8-afe8-fa12b9ba3cea" name="Changes" comment="" />
+    <list default="true" id="5f99cbf4-73d3-41a8-afe8-fa12b9ba3cea" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assignment_1/Exercise03.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.02UnderstandingTypes/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.02UnderstandingTypes/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.02UnderstandingTypes/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.02UnderstandingTypes/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.02UnderstandingTypes/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Assignment_1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assignment_1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02UnderstandingTypes.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_1.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment_1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_1/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment_1/Question 1-4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_1/Question 1-4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment_1/obj/Debug/net8.0/Assignment_1.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_1/obj/Debug/net8.0/Assignment_1.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment_1/obj/Debug/net8.0/Assignment_1.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_1/obj/Debug/net8.0/Assignment_1.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment_1/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_1/obj/rider.project.model.nuget.info" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -26,6 +43,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;.NET Project.Assignment_1.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
@@ -67,6 +85,7 @@
       <updated>1733372232800</updated>
       <workItem from="1733372233826" duration="353000" />
       <workItem from="1733418485316" duration="1557000" />
+      <workItem from="1733506693028" duration="1146000" />
     </task>
     <servers />
   </component>

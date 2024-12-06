@@ -41,11 +41,7 @@ output for them. For instance, your program could generate their "hacker name" b
 them their favorite color, their astrology sign, and their street address number. The result
 might be something like "Your hacker name is RedGemini480."
 Practice number sizes and ranges
-1. Create a console application project named /02UnderstandingTypes/ that outputs the
-number of bytes in memory that each of the following number types uses, and the
-minimum and maximum values they can have: sbyte, byte, short, ushort, int, uint, long,
-ulong, float, double, and decimal.
-Composite Formatting to learn how to align text in a console application
+
 2. Write program to enter an integer number of centuries and convert it to years, days, hours,
 minutes, seconds, milliseconds, microseconds, nanoseconds. Use an appropriate data
 type for every data conversion. Beware of overflows!
